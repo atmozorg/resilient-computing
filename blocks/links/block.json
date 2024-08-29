@@ -1,0 +1,15 @@
+{
+    "name": "resilient-computing/links",
+    "title": "Links",
+    "description": "A custom links block.",
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["links"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "links.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "resilient-computing/counters",
+    "title": "Counters",
+    "description": "A custom counters block.",
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["counters"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "counters.php"
+    },
+    "supports": {
+        "anchor": true,
+        "color": true
+    }
+}
