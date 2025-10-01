@@ -22,8 +22,11 @@
 			</h1>
 
 			<p><?php echo get_field( 'content' ); ?></p>
-
-			<?php acf_link( get_field( 'link' ), 'btn mt-8 text-shadow' ); ?>
+			
+			<div class="flex flex-wrap gap-x-8">
+				<?php acf_link( get_field( 'link' ), 'btn mt-8 text-shadow' ); ?>
+				<?php acf_link( get_field( 'pre_order_link' ), 'btn mt-8 text-shadow' ); ?>
+			</div>
 
 		</div>
 	

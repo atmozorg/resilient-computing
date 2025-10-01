@@ -26,6 +26,9 @@
 		-webkit-text-fill-color: transparent;
   		-webkit-text-stroke: 1px;
 	}
+
+	:root :where(.wp-element-button, .wp-block-button__link),
+	button.single_add_to_cart_button.button.alt,
 	.btn {
 		@apply inline-block bg-orange text-white font-bold uppercase py-4 px-8 rounded-xl !no-underline hover:bg-[#bc5817] transition-all duration-300;
 	}
@@ -76,7 +79,8 @@ img.alignright {
 	@apply md:basis-[calc(100%-200px)];
 }
 .wpcf7-form input,
-.wpcf7-form textarea {
+.wpcf7-form textarea,
+.wpcf7-form select {
 	@apply border-2 w-[500px] max-w-full rounded-xl p-2;
 }
 .wpcf7-form p {
@@ -84,6 +88,9 @@ img.alignright {
 }
 .wpcf7-submit {
 	@apply inline-block bg-orange text-white font-bold uppercase py-4 !px-8 rounded-xl mx-auto;
+}
+.wpcf7-submit:hover {
+	@apply bg-[#bc5817] cursor-pointer;
 }
 
 .timeline {
@@ -112,4 +119,52 @@ img.alignright {
 }
 .darken {
 	filter: brightness(70%);
+}
+
+.cart {
+	@apply flex flex-col md:flex-row md:items-center md:justify-end md:gap-4;
+}
+
+.quantity {
+    @apply flex items-center justify-start gap-2;
+}
+
+.quantity .qty {
+    @apply text-center text-sm md:text-base border border-gray-300 rounded-md py-2 px-3 w-16;
+}
+
+.comment-form-comment {
+    @apply mb-4;
+}
+
+.comment-form-comment label {
+    @apply block text-sm md:text-base font-semibold text-gray-700 mb-1;
+}
+
+.comment-form-comment textarea {
+    @apply w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200;
+}
+
+.woocommerce div.product div.images img {
+	@apply max-h-[400px] max-w-[400px] object-cover w-auto h-auto mx-auto;
+}
+
+.flex-viewport {
+	@apply mb-8;
+}
+.flex-control-thumbs {
+	@apply flex flex-wrap gap-4 justify-center;
+}
+
+.woocommerce-loop-product__title {
+	@apply !translate-y-0;
+}
+
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) ul.products li.product .price,
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product p.price, .woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product span.price {
+	@apply text-orange font-bold mt-2;
+}
+
+.cart-is-empty .cart-link {
+	@apply !hidden;
 }

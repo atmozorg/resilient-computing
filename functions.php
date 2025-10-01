@@ -6,7 +6,7 @@ add_action( 'load-page.php', 'resilient_computing_enqueue_scripts' );
 add_action( 'wp_enqueue_scripts', 'resilient_computing_enqueue_scripts' );
 
 function resilient_computing_enqueue_scripts() {
-	wp_enqueue_style( 'resilient-computing', get_stylesheet_directory_uri() . '/output.css' );
+	wp_enqueue_style( 'resilient-computing', get_stylesheet_directory_uri() . '/output.css', [], '1.1' );
 }
 
 add_action( 'after_setup_theme', function() {
@@ -55,3 +55,25 @@ function acf_link( $link, string $class = '' ) {
 		$link[ 'title' ]
 	);
 }
+
+/**
+ * Remove the breadcrumbs 
+ */
+add_action( 'init', 'woo_remove_wc_breadcrumbs' );
+function woo_remove_wc_breadcrumbs() {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+/**
+ * Add 'cart-is-empty' class to the body tag if the WooCommerce cart has no items.
+ * This class can be used with CSS to hide the cart link in the navigation.
+ */
+function custom_woocommerce_body_classes( $classes ) {
+    // Check if the WooCommerce class exists and the cart is empty
+    if ( class_exists( 'WooCommerce' ) && is_object( WC()->cart ) && WC()->cart->is_empty() ) {
+        $classes[] = 'cart-is-empty';
+    }
+    return $classes;
+}
+add_filter( 'body_class', 'custom_woocommerce_body_classes' );
